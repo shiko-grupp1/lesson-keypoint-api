@@ -1,23 +1,17 @@
 ﻿namespace Domain.Entities;
 
-public class Lesson
+public class KeyPoint
 {
-	public Guid Id { get; set; }
-	public string Title { get; private set; }
+	public Guid Id { get; private set; }
+	public Guid LessonId { get; private set; }
+	public string Text { get; private set; } = null!;
 
-	private readonly List<string> _keyPoints = new();
-	public IReadOnlyCollection<string> KeyPoints => _keyPoints;
+	private KeyPoint() { }
 
-	private Lesson() { } 
-
-	public Lesson(string title)
+	public KeyPoint(Guid lessonId, string text)
 	{
 		Id = Guid.NewGuid();
-		Title = title;
-	}
-
-	public void AddKeyPoint(string keyPoint)
-	{
-		_keyPoints.Add(keyPoint);
+		LessonId = lessonId;
+		Text = text;
 	}
 }
