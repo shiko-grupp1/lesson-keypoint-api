@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDbContext<LessonDbContext>(options =>
-	options.UseSqlServer(builder.Configuration.GetConnectionString("Default"),
+	options.UseSqlServer(builder.Configuration.GetConnectionString("Azure"),
 	sql => sql.EnableRetryOnFailure()
 	));
 
